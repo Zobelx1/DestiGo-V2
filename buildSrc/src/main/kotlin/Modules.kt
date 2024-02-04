@@ -30,9 +30,9 @@ object Modules {
     }
 
     object Trips {
-        const val TRIPS_DOMAIN = ":trips:domain"
-        const val TRIPS_DATA = ":trips:data"
-        const val TRIPS_UI = ":trips:ui"
+        const val TRIPS_DOMAIN = ":trips:trips_domain"
+        const val TRIPS_DATA = ":trips:trips_data"
+        const val TRIPS_UI = ":trips:trips_ui"
         const val TESTING = ":trips:testing"
     }
 
@@ -44,16 +44,16 @@ object Modules {
     }
 
     object Details {
-        const val DETAILS_DOMAIN = ":details:domain"
-        const val DETAILS_DATA = ":details:data"
-        const val DETAILS_UI = ":details:ui"
+        const val DETAILS_DOMAIN = ":details:details_domain"
+        const val DETAILS_DATA = ":details:details_data"
+        const val DETAILS_UI = ":details:details_ui"
         const val TESTING = ":details:testing"
     }
 
     object Welcome {
-        const val WELCOME_DOMAIN = ":welcome:domain"
-        const val WELCOME_DATA = ":welcome:data"
-        const val WELCOME_UI = ":welcome:ui"
+        const val WELCOME_DOMAIN = ":welcome:welcome_domain"
+        const val WELCOME_DATA = ":welcome:welcome_data"
+        const val WELCOME_UI = ":welcome:welcome_ui"
         const val TESTING = ":welcome:testing"
     }
 
@@ -63,23 +63,23 @@ object Modules {
     }
 
     object Search {
-        const val SEARCH_DOMAIN = ":search:domain"
-        const val SEARCH_DATA = ":search:data"
-        const val SEARCH_UI = ":search:ui"
+        const val SEARCH_DOMAIN = ":search:search_domain"
+        const val SEARCH_DATA = ":search:search_data"
+        const val SEARCH_UI = ":search:search_ui"
         const val TESTING = ":search:testing"
     }
 
     object Chat {
-        const val CHAT_DOMAIN = ":chat:domain"
-        const val CHAT_DATA = ":chat:data"
-        const val CHAT_UI = ":chat:ui"
+        const val CHAT_DOMAIN = ":chat:chat_domain"
+        const val CHAT_DATA = ":chat:chat_data"
+        const val CHAT_UI = ":chat:chat_ui"
         const val TESTING = ":chat:testing"
     }
 
     object Posts {
-        const val POSTS_DOMAIN = ":posts:domain"
-        const val POSTS_DATA = ":posts:data"
-        const val POSTS_UI = ":posts:ui"
+        const val POSTS_DOMAIN = ":posts:posts_domain"
+        const val POSTS_DATA = ":posts:posts_data"
+        const val POSTS_UI = ":posts:posts_ui"
         const val TESTING = ":posts:testing"
     }
 
