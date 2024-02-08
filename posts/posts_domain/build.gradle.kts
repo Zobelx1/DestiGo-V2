@@ -7,3 +7,9 @@ plugins {
 android {
     namespace = "com.mobilebreakero.posts_domain"
 }
+dependencies{
+    implementation(project(Modules.Core.CORE_DOMAIN))
+    implementation(project(Modules.Core.CORE_DATA))
+
+
+}
