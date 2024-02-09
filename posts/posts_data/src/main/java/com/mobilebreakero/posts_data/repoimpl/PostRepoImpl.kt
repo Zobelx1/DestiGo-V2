@@ -5,16 +5,12 @@ import com.google.android.gms.tasks.OnFailureListener
 import com.google.android.gms.tasks.OnSuccessListener
 import com.google.firebase.firestore.FieldValue
 import com.google.firebase.firestore.FirebaseFirestore
-import com.mobilebreakero.auth_domain.model.AppUser
-import com.mobilebreakero.auth_domain.model.Comment
-import com.mobilebreakero.auth_domain.model.Post
-import com.mobilebreakero.auth_domain.repo.addPostResponse
-import com.mobilebreakero.auth_domain.repo.postDetailsResponse
-import com.mobilebreakero.auth_domain.repo.postResponse
-import com.mobilebreakero.auth_domain.repo.updatePostResponse
-import com.mobilebreakero.auth_domain.util.Response
-import com.mobilebreakero.auth_domain.util.getCollection
-import com.mobilebreakero.posts_domain.repo.PostsRepo
+import com.mobilebreakero.core_domain.model.AppUser
+import com.mobilebreakero.core_domain.model.Comment
+import com.mobilebreakero.core_domain.model.Post
+import com.mobilebreakero.core_domain.util.Response
+import com.mobilebreakero.core_domain.util.getCollection
+import com.mobilebreakero.posts_domain.repo.*
 import kotlinx.coroutines.DelicateCoroutinesApi
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
@@ -155,7 +151,7 @@ class PostRepoImpl @Inject constructor() : PostsRepo {
 
             val userDoc = db.collection("users").document(userId)
             val userSnapshot = userDoc.get().await()
-            val userData = userSnapshot.toObject(AppUser::class.java)
+            val userData = userSnapshot.toObject(com.mobilebreakero.core_domain.model.AppUser::class.java)
 
             if (postData != null) {
                 val newPost = Post(
@@ -190,7 +186,11 @@ class PostRepoImpl @Inject constructor() : PostsRepo {
         return try {
             val db = FirebaseFirestore.getInstance()
             val postDocument = db.collection(Post.COLLECTION_NAME).document(postId)
-            val newComment = Comment(userId = userId, userName = userName, text = comment)
+            val newComment = com.mobilebreakero.core_domain.model.Comment(
+                userId = userId,
+                userName = userName,
+                text = comment
+            )
             postDocument.update("comments", FieldValue.arrayUnion(newComment))
             Response.Success(true)
         } catch (e: Exception) {

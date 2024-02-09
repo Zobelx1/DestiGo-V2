@@ -8,7 +8,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
-import com.mobilebreakero.auth_domain.model.Post
+import com.mobilebreakero.core_domain.model.Post
 import com.mobilebreakero.auth_domain.repo.addPostResponse
 import com.mobilebreakero.auth_domain.repo.postResponse
 import com.mobilebreakero.auth_domain.repo.updatePostResponse
@@ -34,7 +34,7 @@ class YourPostsViewModel @Inject constructor(
     private val _postsFlow = MutableStateFlow<postResponse>(Response.Loading)
     val postsFlow: StateFlow<postResponse> get() = _postsFlow
 
-    var postsResult by mutableStateOf(listOf<Post>())
+    var postsResult by mutableStateOf(listOf<com.mobilebreakero.core_domain.model.Post>())
 
     fun getPosts(userId: String) {
         viewModelScope.launch {

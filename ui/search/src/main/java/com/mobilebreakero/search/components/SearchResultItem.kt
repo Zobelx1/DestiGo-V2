@@ -26,15 +26,15 @@ import androidx.navigation.NavController
 import coil.compose.SubcomposeAsyncImage
 import coil.request.ImageRequest
 import com.mobilebreakero.core_ui.components.LoadingIndicator
-import com.mobilebreakero.auth_domain.model.DataItem
-import com.mobilebreakero.auth_domain.model.PhotoDataItem
+import com.mobilebreakero.core_domain.model.DataItem
+import com.mobilebreakero.core_domain.model.PhotoDataItem
 
 
 @Composable
 fun SearchResultItem(
-    item: DataItem,
+    item: com.mobilebreakero.core_domain.model.DataItem,
     navController: NavController,
-    photoDataItem: PhotoDataItem?) {
+    photoDataItem: com.mobilebreakero.core_domain.model.PhotoDataItem?) {
 
     Box(
         modifier = Modifier

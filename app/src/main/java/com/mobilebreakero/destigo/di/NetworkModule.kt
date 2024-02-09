@@ -1,7 +1,7 @@
 package com.mobilebreakero.destigo.di
 
 import com.mobilebreakero.auth_data.remote.TripApi
-import com.mobilebreakero.auth_domain.util.DataUtils.BASE_URL
+import com.mobilebreakero.core_domain.util.DataUtils.BASE_URL
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

@@ -6,21 +6,13 @@ import com.google.firebase.firestore.FieldValue
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.SetOptions
 import com.google.firebase.firestore.toObjects
-import com.mobilebreakero.auth_domain.model.CheckList
-import com.mobilebreakero.auth_domain.model.Trip
-import com.mobilebreakero.auth_domain.model.TripJournal
-import com.mobilebreakero.auth_domain.model.TripPhotos
-import com.mobilebreakero.auth_domain.model.TripPlace
-import com.mobilebreakero.auth_domain.model.TripsItem
-import com.mobilebreakero.auth_domain.repo.TripsRepo
-import com.mobilebreakero.auth_domain.repo.addTripResponse
-import com.mobilebreakero.auth_domain.repo.getPublicTripsResponse
-import com.mobilebreakero.auth_domain.repo.getTripJournalDetailsResponse
-import com.mobilebreakero.auth_domain.repo.getTripsResponse
-import com.mobilebreakero.auth_domain.repo.updatePlacesResponse
-import com.mobilebreakero.auth_domain.repo.updateTripResponse
-import com.mobilebreakero.auth_domain.util.Response
-import com.mobilebreakero.auth_domain.util.getCollection
+import com.mobilebreakero.core_domain.model.TripsItem
+import com.mobilebreakero.trips_domain.model.CheckList
+import com.mobilebreakero.trips_domain.model.Trip
+import com.mobilebreakero.core_domain.util.Response
+import com.mobilebreakero.core_domain.util.getCollection
+import com.mobilebreakero.trips_domain.model.*
+import com.mobilebreakero.trips_domain.repo.*
 import kotlinx.coroutines.tasks.await
 import javax.inject.Inject
 import javax.inject.Singleton
@@ -35,6 +27,7 @@ class TripRepoImpl @Inject constructor() : TripsRepo {
             val tripQuerySnapshot = tripQuery.get().await()
 
             if (tripQuerySnapshot.isEmpty) {
+
                 Response.Failure(NoSuchElementException("No trips found"))
             } else {
                 val trips = tripQuerySnapshot.toObjects<Trip>()

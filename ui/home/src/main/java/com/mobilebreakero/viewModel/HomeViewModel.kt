@@ -7,24 +7,6 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.mobilebreakero.auth_domain.model.Post
-import com.mobilebreakero.auth_domain.model.RecommendedPlaceItem
-import com.mobilebreakero.auth_domain.model.ReviewItem
-import com.mobilebreakero.auth_domain.model.TripsItem
-import com.mobilebreakero.auth_domain.repo.addPostResponse
-import com.mobilebreakero.auth_domain.repo.addTripResponse
-import com.mobilebreakero.auth_domain.repo.getPublicTripsResponse
-import com.mobilebreakero.auth_domain.repo.postDetailsResponse
-import com.mobilebreakero.auth_domain.repo.postResponse
-import com.mobilebreakero.auth_domain.repo.updatePostResponse
-import com.mobilebreakero.auth_domain.repo.updateUserResponse
-import com.mobilebreakero.auth_domain.usecase.GetReviewsUseCase
-import com.mobilebreakero.auth_domain.usecase.RecommendedPlaceUseCase
-import com.mobilebreakero.auth_domain.usecase.RecommendedUseCase
-import com.mobilebreakero.auth_domain.usecase.firestore.PostUseCase
-import com.mobilebreakero.auth_domain.usecase.firestore.TripsUseCase
-import com.mobilebreakero.auth_domain.usecase.firestore.UserUseCase
-import com.mobilebreakero.auth_domain.util.Response
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -67,7 +49,7 @@ class HomeViewModel @Inject constructor(
     private val _postsIdFlow = MutableStateFlow<postResponse>(Response.Loading)
     val postsIdFlow: StateFlow<postResponse> get() = _postsFlow
 
-    var postsResult by mutableStateOf(listOf<Post>())
+    var postsResult by mutableStateOf(listOf<com.mobilebreakero.core_domain.model.Post>())
 
     fun getPostsById(userId: String) {
         viewModelScope.launch {
@@ -89,7 +71,7 @@ class HomeViewModel @Inject constructor(
     private val _publicTripsFlow = MutableStateFlow<getPublicTripsResponse>(Response.Loading)
     val publicTripsFlow: StateFlow<getPublicTripsResponse> get() = _publicTripsFlow
 
-    var publicTripResult by mutableStateOf(listOf<TripsItem>())
+    var publicTripResult by mutableStateOf(listOf<com.mobilebreakero.core_domain.model.TripsItem>())
 
     fun getPublicTrips(userId: String) {
         viewModelScope.launch {
@@ -165,7 +147,7 @@ class HomeViewModel @Inject constructor(
 
 
     private val details =
-        MutableStateFlow<postDetailsResponse>(Response.Success(Post()))
+        MutableStateFlow<postDetailsResponse>(Response.Success(com.mobilebreakero.core_domain.model.Post()))
     val detailsResult: StateFlow<postDetailsResponse> = details
 
 
@@ -182,7 +164,7 @@ class HomeViewModel @Inject constructor(
     }
 
 
-    var userRecommendations by mutableStateOf(listOf<TripsItem?>())
+    var userRecommendations by mutableStateOf(listOf<com.mobilebreakero.core_domain.model.TripsItem?>())
         private set
 
     fun getRecommendations(userInterests: List<String>) {
@@ -196,7 +178,7 @@ class HomeViewModel @Inject constructor(
         }
     }
 
-    var userRecommendationsPlaces by mutableStateOf(listOf<RecommendedPlaceItem?>())
+    var userRecommendationsPlaces by mutableStateOf(listOf<com.mobilebreakero.core_domain.model.RecommendedPlaceItem?>())
         private set
 
     fun getRecommendedPlaces(userInterests: List<String>) {
@@ -215,8 +197,8 @@ class HomeViewModel @Inject constructor(
 
     fun updateSaves(
         id: String,
-        savePlaces: RecommendedPlaceItem? = null,
-        savedTrips: TripsItem? = null
+        savePlaces: com.mobilebreakero.core_domain.model.RecommendedPlaceItem? = null,
+        savedTrips: com.mobilebreakero.core_domain.model.TripsItem? = null
     ) {
         viewModelScope.launch {
             try {
@@ -231,7 +213,7 @@ class HomeViewModel @Inject constructor(
     var savePublicTripsResponse by mutableStateOf<addTripResponse>(Response.Success(false))
         private set
 
-    fun savePublicTrips(trip: TripsItem) {
+    fun savePublicTrips(trip: com.mobilebreakero.core_domain.model.TripsItem) {
         viewModelScope.launch {
             try {
                 savePublicTripsResponse = Response.Loading
@@ -256,7 +238,7 @@ class HomeViewModel @Inject constructor(
         }
     }
 
-    var getReviews by mutableStateOf(listOf(ReviewItem()))
+    var getReviews by mutableStateOf(listOf(com.mobilebreakero.details_domain.model.ReviewItem()))
         private set
 
     fun getReviews() {

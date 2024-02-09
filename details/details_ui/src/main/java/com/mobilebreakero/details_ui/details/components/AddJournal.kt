@@ -1,4 +1,4 @@
-package com.mobilebreakero.details.components
+package com.mobilebreakero.details_ui.details.components
 
 import android.app.DatePickerDialog
 import android.net.Uri
@@ -52,11 +52,13 @@ import coil.compose.SubcomposeAsyncImage
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.ktx.storage
-import com.mobilebreakero.auth_data.repoimpl.GenerateRandomIdNumber
-import com.mobilebreakero.auth_domain.model.AppUser
+import com.mobilebreakero.core_domain.model.AppUser
+import com.mobilebreakero.core_domain.util.generateRandomIdNumber
+import com.mobilebreakero.core_ui.components.DestiGoButton
 import com.mobilebreakero.core_ui.components.GetUserFromFireStore
-import com.mobilebreakero.details.DetailsViewModel
-import com.mobilebreakero.details.R
+import com.mobilebreakero.core_ui.components.LinearIndicator
+import com.mobilebreakero.details_ui.R
+import com.mobilebreakero.details_ui.details.DetailsViewModel
 import java.text.SimpleDateFormat
 import java.util.Calendar
 import java.util.Locale
@@ -164,7 +166,7 @@ fun AddTripJournal(
             )
             Spacer(modifier = Modifier.height(10.dp))
 
-            com.mobilebreakero.core_ui.components.DestiGoButton(
+    DestiGoButton(
                 onClick = {
                     isDateClicked.value = true
                 },
@@ -219,7 +221,7 @@ fun AddTripJournal(
                         journal = journalContent.value,
                         image = imageLink,
                         date = selectedDate,
-                        journalId = GenerateRandomIdNumber().toString()
+                        journalId = generateRandomIdNumber().toString()
                     )
                     Toast.makeText(context, "Journal Added", Toast.LENGTH_SHORT).show()
                     navController.popBackStack()
@@ -229,7 +231,7 @@ fun AddTripJournal(
             )
         }
         if (isUploading) {
-            com.mobilebreakero.core_ui.components.LinearIndicator(uploadProgress)
+            LinearIndicator(uploadProgress)
         }
 
         if (isDateClicked.value) {
@@ -308,7 +310,7 @@ fun AddButton(
 fun uploadImageToStorage(uri: Uri?, onComplete: (String, Any?) -> Unit) {
     val store = Firebase.storage
     val storageRef = store.reference
-    val imageRef = storageRef.child("images/${GenerateRandomIdNumber()}")
+    val imageRef = storageRef.child("images/${generateRandomIdNumber()}")
 
     if (uri == null) {
         onComplete("", false)

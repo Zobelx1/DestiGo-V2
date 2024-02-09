@@ -1,4 +1,4 @@
-package com.mobilebreakero.details
+package com.mobilebreakero.details_ui.details
 
 import android.net.Uri
 import androidx.activity.compose.rememberLauncherForActivityResult
@@ -46,19 +46,19 @@ import androidx.navigation.NavController
 import coil.compose.SubcomposeAsyncImage
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.ktx.storage
+import com.mobilebreakero.trips_domain.model.Trip
+import com.mobilebreakero.core_domain.util.DataUtils
+import com.mobilebreakero.core_domain.util.generateRandomIdNumber
+import com.mobilebreakero.core_domain.util.Response
 import com.mobilebreakero.core_ui.components.LoadingIndicator
-import com.mobilebreakero.core_ui.components.ShowDatePickerDialog
 import com.mobilebreakero.core_ui.components.calculateEndDate
-import com.mobilebreakero.auth_data.repoimpl.GenerateRandomIdNumber
 import com.mobilebreakero.details_ui.details.components.ItemsChip
-import com.mobilebreakero.details.components.PlacesToVisit
-import com.mobilebreakero.details.components.TripCheckList
-import com.mobilebreakero.details.components.TripDetailsCard
-import com.mobilebreakero.details.components.TripImages
-import com.mobilebreakero.details.components.TripJournal
-import com.mobilebreakero.auth_domain.model.Trip
-import com.mobilebreakero.auth_domain.util.DataUtils
-import com.mobilebreakero.auth_domain.util.Response
+import com.mobilebreakero.details_ui.details.components.PlacesToVisit
+import com.mobilebreakero.details_ui.details.components.ShowDatePickerDialog
+import com.mobilebreakero.details_ui.details.components.TripCheckList
+import com.mobilebreakero.details_ui.details.components.TripDetailsCard
+import com.mobilebreakero.details_ui.details.components.TripImages
+import com.mobilebreakero.details_ui.details.components.TripJournal
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
@@ -78,7 +78,7 @@ fun TripDetailsScreen(
 
     when (tripDetails) {
         is Response.Success -> {
-            val results = (tripDetails as Response.Success<Trip>).data
+            val results = (tripDetails as Response.Success<com.mobilebreakero.trips_domain.model.Trip>).data
             TripDetails(results, navController)
         }
 
@@ -96,7 +96,7 @@ fun TripDetailsScreen(
 
 @Composable
 fun TripDetails(
-    trip: Trip,
+    trip: com.mobilebreakero.trips_domain.model.Trip,
     navController: NavController,
     viewModel: DetailsViewModel = hiltViewModel()
 ) {
@@ -148,7 +148,7 @@ fun TripDetails(
                             },
                         contentDescription = null,
                         contentScale = ContentScale.FillBounds,
-                        loading = { com.mobilebreakero.core_ui.components.LoadingIndicator() })
+                        loading = { LoadingIndicator() })
                     Box(
                         modifier = Modifier
                             .fillMaxSize()
@@ -216,13 +216,13 @@ fun TripDetails(
                     var endDate by remember { mutableStateOf(trip.endDate) }
 
                     if (selectedDate.isNotBlank()) {
-                        endDate = com.mobilebreakero.core_ui.components.calculateEndDate(
+                        endDate = calculateEndDate(
                             selectedDate,
                             tripDays
                         )
                     } else if (tripDaysUpdate.isNotBlank()) {
                         val startDate: String = trip.startDate ?: ""
-                        endDate = com.mobilebreakero.core_ui.components.calculateEndDate(
+                        endDate = calculateEndDate(
                             startDate,
                             tripDaysUpdate
                         )
@@ -230,7 +230,7 @@ fun TripDetails(
 
                     if (tripDaysUpdate.isNotBlank()) {
                         tripDays = tripDaysUpdate
-                        endDate = com.mobilebreakero.core_ui.components.calculateEndDate(
+                        endDate = calculateEndDate(
                             startDate = trip.startDate ?: "", tripDaysUpdate
                         )
                     }
@@ -329,7 +329,7 @@ fun TripDetails(
         }
 
         if (isDateClicked.value) {
-            com.mobilebreakero.core_ui.components.ShowDatePickerDialog(
+            ShowDatePickerDialog(
                 selectedDate = selectedDate,
                 onDateSelected = {
                     selectedDate = it
@@ -347,7 +347,7 @@ fun TripDetails(
 fun uploadImageToStorage(uri: Uri?, onComplete: (String, Any?) -> Unit) {
     val store = Firebase.storage
     val storageRef = store.reference
-    val imageRef = storageRef.child("tripCover/${DataUtils.user?.id}${GenerateRandomIdNumber()}}")
+    val imageRef = storageRef.child("tripCover/${DataUtils.user?.id}${generateRandomIdNumber()}}")
 
     if (uri == null) {
         onComplete("", false)

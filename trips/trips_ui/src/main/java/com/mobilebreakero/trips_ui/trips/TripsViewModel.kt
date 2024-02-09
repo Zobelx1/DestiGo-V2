@@ -1,4 +1,4 @@
-package com.mobilebreakero.trips
+package com.mobilebreakero.trips_ui.trips
 
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -7,16 +7,13 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
-import com.mobilebreakero.auth_domain.model.DataItem
-import com.mobilebreakero.auth_domain.model.Trip
-import com.mobilebreakero.auth_domain.model.TripsItem
-import com.mobilebreakero.auth_domain.repo.addTripResponse
-import com.mobilebreakero.auth_domain.repo.getPublicTripsResponse
-import com.mobilebreakero.auth_domain.repo.getTripsResponse
-import com.mobilebreakero.auth_domain.repo.updateTripResponse
-import com.mobilebreakero.auth_domain.usecase.SearchPlacesUseCase
-import com.mobilebreakero.auth_domain.usecase.firestore.TripsUseCase
-import com.mobilebreakero.auth_domain.util.Response
+import com.mobilebreakero.core_domain.model.DataItem
+import com.mobilebreakero.trips_domain.model.Trip
+import com.mobilebreakero.core_domain.model.TripsItem
+import com.mobilebreakero.profile_domain.usecase.SearchPlacesUseCase
+import com.mobilebreakero.core_domain.util.Response
+import com.mobilebreakero.trips_domain.repo.*
+import com.mobilebreakero.trips_domain.usecase.TripsUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow

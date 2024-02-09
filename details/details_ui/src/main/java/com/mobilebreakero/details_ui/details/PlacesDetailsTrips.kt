@@ -1,4 +1,4 @@
-package com.mobilebreakero.details
+package com.mobilebreakero.details_ui.details
 
 import androidx.compose.animation.core.EaseInOut
 import androidx.compose.animation.core.animateFloatAsState
@@ -39,16 +39,16 @@ import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
 import coil.compose.SubcomposeAsyncImage
 import com.mobilebreakero.core_ui.components.LoadingIndicator
-import com.mobilebreakero.details.components.AmenitiesCard
-import com.mobilebreakero.details.components.DetailsCard
+import com.mobilebreakero.details_ui.details.components.AmenitiesCard
+import com.mobilebreakero.details_ui.details.components.DetailsCard
 import com.mobilebreakero.details_ui.details.components.ItemsChip
-import com.mobilebreakero.details.components.ReviewItemCard
-import com.mobilebreakero.details.components.ShowDatePickerDialog
-import com.mobilebreakero.auth_domain.model.DetailsResponse
-import com.mobilebreakero.auth_domain.model.PhotoDataItem
-import com.mobilebreakero.auth_domain.model.ReviewItem
-import com.mobilebreakero.auth_domain.model.Trip
-import com.mobilebreakero.auth_domain.util.Response
+import com.mobilebreakero.details_ui.details.components.ShowDatePickerDialog
+import com.mobilebreakero.core_domain.model.PhotoDataItem
+import com.mobilebreakero.trips_domain.model.Trip
+import com.mobilebreakero.core_domain.util.Response
+import com.mobilebreakero.details_domain.model.DetailsResponse
+import com.mobilebreakero.details_domain.model.ReviewItem
+import com.mobilebreakero.details_ui.details.components.ReviewItemCard
 
 
 @Composable
@@ -79,7 +79,7 @@ fun PlacesDetailsTrips(
 
                     when (tripDetails) {
                         is Response.Success -> {
-                            val tripsResults = (tripDetails as Response.Success<Trip>).data
+                            val tripsResults = (tripDetails as Response.Success<com.mobilebreakero.trips_domain.model.Trip>).data
                             val reviewsResponse = viewModel.getReviews
 
                             PlacesTripDetailsContent(
@@ -96,7 +96,7 @@ fun PlacesDetailsTrips(
 
                         else -> {
                             Response.Loading
-                            com.mobilebreakero.core_ui.components.LoadingIndicator()
+                            LoadingIndicator()
                         }
                     }
 
@@ -108,7 +108,7 @@ fun PlacesDetailsTrips(
 
                 else -> {
                     Response.Loading
-                    com.mobilebreakero.core_ui.components.LoadingIndicator()
+                    LoadingIndicator()
                 }
             }
         }
@@ -119,7 +119,7 @@ fun PlacesDetailsTrips(
 
         else -> {
             Response.Loading
-            com.mobilebreakero.core_ui.components.LoadingIndicator()
+            LoadingIndicator()
         }
     }
 }
@@ -132,7 +132,7 @@ fun PlacesTripDetailsContent(
     detailsResponse: DetailsResponse,
     viewModel: DetailsViewModel = hiltViewModel(),
     reviewResponse: List<ReviewItem>? = null,
-    trip: Trip
+    trip: com.mobilebreakero.trips_domain.model.Trip
 ) {
 
     val pagerState = rememberPagerState(
@@ -163,7 +163,7 @@ fun PlacesTripDetailsContent(
                         modifier = Modifier.fillMaxSize(),
                         contentDescription = null,
                         contentScale = ContentScale.FillBounds,
-                        loading = { com.mobilebreakero.core_ui.components.LoadingIndicator() })
+                        loading = { LoadingIndicator() })
                     Box(
                         modifier = Modifier
                             .fillMaxSize()

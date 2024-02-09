@@ -1,4 +1,4 @@
-package com.mobilebreakero.details.components
+package com.mobilebreakero.details_ui.details.components
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
@@ -29,17 +29,15 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import coil.compose.SubcomposeAsyncImage
 import coil.request.ImageRequest
-import com.mobilebreakero.core_ui.components.CoilImage
-import com.mobilebreakero.core_ui.components.LoadingIndicator
-import com.mobilebreakero.details.DetailsViewModel
-import com.mobilebreakero.details.R
-import com.mobilebreakero.auth_domain.model.Trip
-import com.mobilebreakero.auth_domain.util.Response
+import com.mobilebreakero.trips_domain.model.Trip
+import com.mobilebreakero.core_domain.util.Response
+import com.mobilebreakero.details_ui.R
+import com.mobilebreakero.details_ui.details.DetailsViewModel
 
 
 @Composable
 fun PlacesToVisit(
-    trip: Trip,
+    trip: com.mobilebreakero.trips_domain.model.Trip,
     navController: NavController,
     viewModel: DetailsViewModel = hiltViewModel()
 ) {

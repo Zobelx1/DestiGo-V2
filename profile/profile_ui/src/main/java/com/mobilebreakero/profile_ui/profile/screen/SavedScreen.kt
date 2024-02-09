@@ -31,9 +31,9 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
-import com.mobilebreakero.auth_domain.model.AppUser
-import com.mobilebreakero.auth_domain.model.RecommendedPlaceItem
-import com.mobilebreakero.auth_domain.model.TripsItem
+import com.mobilebreakero.core_domain.model.AppUser
+import com.mobilebreakero.core_domain.model.RecommendedPlaceItem
+import com.mobilebreakero.core_domain.model.TripsItem
 import com.mobilebreakero.auth_domain.util.Response
 
 
@@ -42,7 +42,7 @@ fun SavedScreen(
     viewModel: ProfileViewModel = hiltViewModel(),
     navController: NavController
 ) {
-    val user = remember { mutableStateOf(AppUser()) }
+    val user = remember { mutableStateOf(com.mobilebreakero.core_domain.model.AppUser()) }
     val firebaseUser = Firebase.auth.currentUser
     val scrollState = rememberScrollState()
 
@@ -78,7 +78,7 @@ fun SavedScreen(
                 }
 
                 is Response.Success -> {
-                    val places = (savedPlaces as Response.Success<List<RecommendedPlaceItem>>).data
+                    val places = (savedPlaces as Response.Success<List<com.mobilebreakero.core_domain.model.RecommendedPlaceItem>>).data
 
                     items(places.size) { index ->
                         TripItem(
@@ -118,7 +118,7 @@ fun SavedScreen(
 
                 is Response.Success -> {
                     val _publicTrips =
-                        (publicTrips as Response.Success<List<TripsItem>>).data
+                        (publicTrips as Response.Success<List<com.mobilebreakero.core_domain.model.TripsItem>>).data
                     Log.d("PlanScreen", "Public Trips: $_publicTrips")
 
                     items(_publicTrips.size) { index ->

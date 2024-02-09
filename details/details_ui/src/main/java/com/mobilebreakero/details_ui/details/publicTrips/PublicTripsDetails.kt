@@ -1,4 +1,4 @@
-package com.mobilebreakero.details.publicTrips
+package com.mobilebreakero.details_ui.details.publicTrips
 
 import android.os.Build
 import androidx.annotation.RequiresApi
@@ -47,16 +47,13 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import coil.compose.SubcomposeAsyncImage
 import coil.request.ImageRequest
-import com.mobilebreakero.core_ui.components.LoadingIndicator
-import com.mobilebreakero.core_ui.components.ShowDatePickerDialog
-import com.mobilebreakero.core_ui.components.calculateEndDate
-import com.mobilebreakero.details.DetailsViewModel
-import com.mobilebreakero.details.R
-import com.mobilebreakero.details.components.ElevatedButton
+import com.mobilebreakero.core_domain.model.TripsItem
+import com.mobilebreakero.core_domain.util.Response
+import com.mobilebreakero.details_ui.R
+import com.mobilebreakero.details_ui.details.DetailsViewModel
+import com.mobilebreakero.details_ui.details.components.ElevatedButton
 import com.mobilebreakero.details_ui.details.components.ItemsChip
-import com.mobilebreakero.details.components.TripDetailsCard
-import com.mobilebreakero.auth_domain.model.TripsItem
-import com.mobilebreakero.auth_domain.util.Response
+import com.mobilebreakero.details_ui.details.components.TripDetailsCard
 
 
 @RequiresApi(Build.VERSION_CODES.O)

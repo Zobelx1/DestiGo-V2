@@ -1,15 +1,16 @@
-package com.mobilebreakero.details
+package com.mobilebreakero.details_ui.details
 
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.hilt.navigation.compose.hiltViewModel
+import com.mobilebreakero.core_domain.model.PhotoDataItem
+import com.mobilebreakero.core_domain.util.Response
 import com.mobilebreakero.core_ui.components.LoadingIndicator
-import com.mobilebreakero.details.components.DetailsContent
-import com.mobilebreakero.auth_domain.model.DetailsResponse
-import com.mobilebreakero.auth_domain.model.PhotoDataItem
-import com.mobilebreakero.auth_domain.util.Response
+import com.mobilebreakero.details_domain.model.DetailsResponse
+import com.mobilebreakero.details_ui.details.components.DetailsContent
+
 
 @Composable
 fun DetailsScreen(
@@ -48,7 +49,7 @@ fun DetailsScreen(
 
                 else -> {
                     Response.Loading
-                    com.mobilebreakero.core_ui.components.LoadingIndicator()
+                    LoadingIndicator()
                 }
             }
         }
@@ -59,7 +60,7 @@ fun DetailsScreen(
 
         else -> {
             Response.Loading
-            com.mobilebreakero.core_ui.components.LoadingIndicator()
+            LoadingIndicator()
         }
     }
 

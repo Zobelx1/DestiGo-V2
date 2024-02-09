@@ -20,10 +20,11 @@ import com.exyte.animatednavbar.AnimatedNavigationBar
 import com.exyte.animatednavbar.animation.balltrajectory.Straight
 import com.exyte.animatednavbar.animation.indendshape.Height
 import com.exyte.animatednavbar.animation.indendshape.shapeCornerRadius
-import com.mobilebreakero.navigation_core.NavigationRoutes.HOME_SCREEN
-import com.mobilebreakero.navigation_core.NavigationRoutes.PROFILE_SCREEN
-import com.mobilebreakero.navigation_core.NavigationRoutes.SCAN_SCREEN
-import com.mobilebreakero.navigation_core.NavigationRoutes.TRIPS_SCREEN
+import com.mobilebreakero.core_ui.navigation.NavigationRoutes.HOME_SCREEN
+import com.mobilebreakero.core_ui.navigation.NavigationRoutes.PROFILE_SCREEN
+import com.mobilebreakero.core_ui.navigation.NavigationRoutes.SCAN_SCREEN
+import com.mobilebreakero.core_ui.navigation.NavigationRoutes.TRIPS_SCREEN
+
 
 @Composable
 fun BottomNavigation(navController: NavController) {

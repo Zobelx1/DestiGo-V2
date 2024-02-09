@@ -10,12 +10,12 @@ import androidx.compose.ui.Modifier
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 import com.mobilebreakero.core_ui.components.GetUserFromFireStore
-import com.mobilebreakero.auth_domain.model.AppUser
+import com.mobilebreakero.core_domain.model.AppUser
 
 @Composable
 fun NameSection(modifier: Modifier = Modifier) {
 
-    val user = remember { mutableStateOf(AppUser()) }
+    val user = remember { mutableStateOf(com.mobilebreakero.core_domain.model.AppUser()) }
     val firebaseUser = Firebase.auth.currentUser
 
     com.mobilebreakero.core_ui.components.GetUserFromFireStore(

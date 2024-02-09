@@ -67,13 +67,8 @@ import coil.request.ImageRequest
 import coil.request.SuccessResult
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
-import com.mobilebreakero.core_ui.components.GetUserFromFireStore
-import com.mobilebreakero.core_ui.components.LoadingIndicator
-import com.mobilebreakero.core_ui.extensions.rememberZoomState
+import com.mobilebreakero.core_domain.model.AppUser
 import com.mobilebreakero.core_ui.extensions.zoom
-import com.mobilebreakero.auth_domain.model.AppUser
-import com.mobilebreakero.auth_domain.model.Post
-import com.mobilebreakero.auth_domain.util.Response
 import com.mobilebreakero.home.components.ProfileImage
 import com.mobilebreakero.viewModel.HomeViewModel
 import kotlinx.coroutines.DelicateCoroutinesApi
@@ -118,7 +113,7 @@ fun PostDetailsScreen(
 
     when (details) {
         is Response.Success -> {
-            val postDetails = (details as Response.Success<Post>).data
+            val postDetails = (details as Response.Success<com.mobilebreakero.core_domain.model.Post>).data
             val profilePhoto by remember { mutableStateOf(postDetails.profilePhoto) }
             val name by remember { mutableStateOf(postDetails.userName) }
             val location by remember { mutableStateOf(postDetails.location) }

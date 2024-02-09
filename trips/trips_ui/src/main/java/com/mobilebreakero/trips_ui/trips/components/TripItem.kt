@@ -1,4 +1,4 @@
-package com.mobilebreakero.trips.components
+package com.mobilebreakero.trips_ui.trips.components
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
@@ -50,7 +50,7 @@ fun TripItem(
                 .align(Alignment.Center)
                 .background(Color(0xFFD5E1FF))
         ) {
-            com.mobilebreakero.core_ui.components.CoilImage(
+            CoilImage(
                 contentDescription = "Trip Image",
                 modifier = Modifier
                     .clip(RoundedCornerShape(10.dp))

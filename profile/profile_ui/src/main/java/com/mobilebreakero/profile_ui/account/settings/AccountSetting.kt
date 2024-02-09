@@ -37,7 +37,7 @@ import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 import com.mobilebreakero.navigation_core.NavigationRoutes.PROFILE_SETTINGS
 import com.mobilebreakero.navigation_core.NavigationRoutes.SIGN_IN_BEFORE_UPDATE
-import com.mobilebreakero.auth_domain.model.AppUser
+import com.mobilebreakero.core_domain.model.AppUser
 import com.mobilebreakero.profile.R
 import com.mobilebreakero.profile.component.ProfileImage
 
@@ -47,7 +47,7 @@ fun AccountSettingsContent(
     viewModel: SettingsViewModel = hiltViewModel()
 ) {
 
-    val user = remember { mutableStateOf(AppUser()) }
+    val user = remember { mutableStateOf(com.mobilebreakero.core_domain.model.AppUser()) }
 
     val firebaseUser = Firebase.auth.currentUser
 

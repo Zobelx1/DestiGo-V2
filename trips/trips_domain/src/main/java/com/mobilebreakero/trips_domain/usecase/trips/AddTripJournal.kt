@@ -1,7 +1,7 @@
-package com.mobilebreakero.auth_domain.usecase.firestore.trips
+package com.mobilebreakero.trips_domain.usecase.trips
 
-import com.mobilebreakero.auth_domain.repo.TripsRepo
-import com.mobilebreakero.auth_domain.repo.updatePlacesResponse
+import com.mobilebreakero.trips_domain.repo.TripsRepo
+import com.mobilebreakero.trips_domain.repo.updatePlacesResponse
 import javax.inject.Inject
 
 class AddTripJournal @Inject constructor(

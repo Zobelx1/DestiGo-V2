@@ -7,8 +7,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
-import com.mobilebreakero.auth_domain.model.Trip
-import com.mobilebreakero.auth_domain.model.TripsItem
+import com.mobilebreakero.trips_domain.model.Trip
 import com.mobilebreakero.auth_domain.repo.getPublicTripsResponse
 import com.mobilebreakero.auth_domain.repo.getTripsResponse
 import com.mobilebreakero.auth_domain.usecase.firestore.TripsUseCase
@@ -34,7 +33,7 @@ class YourTripsViewModel @Inject constructor(
     private val _tripsFlow = MutableStateFlow<getTripsResponse>(Response.Loading)
     val tripsFlow: StateFlow<getTripsResponse> get() = _tripsFlow
 
-    var tripsResult by mutableStateOf(listOf<Trip>())
+    var tripsResult by mutableStateOf(listOf<com.mobilebreakero.trips_domain.model.Trip>())
 
     fun getTrips(userId: String) {
         viewModelScope.launch {
@@ -56,7 +55,7 @@ class YourTripsViewModel @Inject constructor(
     private val _publicTripsFlow = MutableStateFlow<getPublicTripsResponse>(Response.Loading)
     val publicTripsFlow: StateFlow<getPublicTripsResponse> get() = _publicTripsFlow
 
-    var publicTripResult by mutableStateOf(listOf<TripsItem>())
+    var publicTripResult by mutableStateOf(listOf<com.mobilebreakero.core_domain.model.TripsItem>())
 
     fun getPublicTrips(userId: String) {
         viewModelScope.launch {

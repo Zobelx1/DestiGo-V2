@@ -23,9 +23,9 @@ object Modules {
     }
 
     object Profile {
-        const val PROFILE_DOMAIN = ":profile:domain"
-        const val PROFILE_DATA = ":profile:data"
-        const val PROFILE_UI = ":profile:ui"
+        const val PROFILE_DOMAIN = ":profile:profile_domain"
+        const val PROFILE_DATA = ":profile:profile_data"
+        const val PROFILE_UI = ":profile:profile_ui"
         const val TESTING = ":profile:testing"
     }
 
@@ -36,12 +36,6 @@ object Modules {
         const val TESTING = ":trips:testing"
     }
 
-    object Scan {
-        const val SCAN_DOMAIN = ":scan:domain"
-        const val SCAN_DATA = ":scan:data"
-        const val SCAN_UI = ":scan:ui"
-        const val TESTING = ":scan:testing"
-    }
 
     object Details {
         const val DETAILS_DOMAIN = ":details:details_domain"
@@ -50,10 +44,10 @@ object Modules {
         const val TESTING = ":details:testing"
     }
 
-    object Welcome {
+    object Splash {
         const val WELCOME_DOMAIN = ":welcome:welcome_domain"
         const val WELCOME_DATA = ":welcome:welcome_data"
-        const val WELCOME_UI = ":welcome:welcome_ui"
+        const val SPLASH_UI = ":splash:splash_ui"
         const val TESTING = ":welcome:testing"
     }
 
@@ -83,25 +77,10 @@ object Modules {
         const val TESTING = ":posts:testing"
     }
 
-    object InterestedPlaces {
-        const val INTERESTEDPLACES_DOMAIN = ":interestedplaces:domain"
-        const val INTERESTEDPLACES_DATA = ":interestedplaces:data"
-        const val INTERESTEDPLACES_UI = ":interestedplaces:ui"
-        const val TESTING = ":interestedplaces:testing"
-    }
-
     const val APP = ":app"
 
     object Ui {
         const val HOME = ":ui:home"
-        const val WELCOME = ":ui:welcome"
-        const val DETAILS = ":ui:details"
-        const val SCAN = ":ui:scan"
-        const val PROFILE = ":ui:profile"
-        const val TRIPS = ":ui:trips"
-        const val AUTH = ":ui:auth"
-        const val ADD_POST = ":ui:addPost"
-        const val INTERESTED_PLACES = ":ui:Interestedplaces"
         const val SEARCH = ":ui:search"
     }
 

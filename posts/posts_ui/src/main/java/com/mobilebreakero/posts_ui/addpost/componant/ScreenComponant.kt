@@ -48,7 +48,7 @@ import coil.compose.SubcomposeAsyncImage
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.ktx.storage
 import com.mobilebreakero.addpost.viewmodel.AddPostViewModel
-import com.mobilebreakero.auth_domain.model.Post
+import com.mobilebreakero.core_domain.model.Post
 import com.mobilebreakero.auth_domain.util.DataUtils
 import com.mobilebreakero.navigation_core.NavigationRoutes.HOME_SCREEN
 import com.mobilebreakero.posts_ui.R
@@ -135,7 +135,7 @@ fun AddPostCard(navController: NavController, viewModel: AddPostViewModel = hilt
                     uploadImageToStorage(imageUri) { downloadUrl, isSuccessful ->
                         if (isSuccessful as Boolean) {
                             imageLink = downloadUrl
-                            val post = Post(
+                            val post = com.mobilebreakero.core_domain.model.Post(
                                 id = GenerateRandomIdNumber().toString(),
                                 userId = user?.id,
                                 userName = user?.name,

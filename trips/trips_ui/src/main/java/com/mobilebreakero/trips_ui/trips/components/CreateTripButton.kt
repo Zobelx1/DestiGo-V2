@@ -1,4 +1,4 @@
-package com.mobilebreakero.trips.components
+package com.mobilebreakero.trips_ui.trips.components
 
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.material3.Button

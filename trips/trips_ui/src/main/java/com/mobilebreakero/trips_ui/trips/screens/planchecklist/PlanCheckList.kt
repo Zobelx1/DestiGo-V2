@@ -1,4 +1,4 @@
-package com.mobilebreakero.trips.screens.planchecklist
+package com.mobilebreakero.trips_ui.trips.screens.planchecklist
 
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
@@ -31,10 +31,10 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
-import com.mobilebreakero.navigation_core.NavigationRoutes
-import com.mobilebreakero.auth_data.repoimpl.GenerateRandomIdNumber
-import com.mobilebreakero.trips.TripsViewModel
-import com.mobilebreakero.trips.components.CreateTripButton
+import com.mobilebreakero.core_domain.util.generateRandomIdNumber
+import com.mobilebreakero.core_ui.navigation.NavigationRoutes.TRIP_DETAILS
+import com.mobilebreakero.trips_ui.trips.TripsViewModel
+import com.mobilebreakero.trips_ui.trips.components.CreateTripButton
 
 @Composable
 fun PlanCheckListScreen(
@@ -97,12 +97,12 @@ fun PlanCheckListScreen(
                         id = tripId,
                         itemName = item,
                         checked = false,
-                        checkItemId = GenerateRandomIdNumber().toString()
+                        checkItemId = generateRandomIdNumber().toString()
                     )
                 }
                 if (screenRoot.isEmpty()) {
                     navController.navigate("AddPlaces/$tripId")
-                } else if (screenRoot == com.mobilebreakero.navigation_core.NavigationRoutes.TRIP_DETAILS) {
+                } else if (screenRoot == TRIP_DETAILS) {
                     navController.navigate("tripDetails/$tripId")
                 } else {
                     navController.navigate("AddPlaces/$tripId")

@@ -8,7 +8,3 @@ plugins {
 android {
     namespace = "com.mobilebreakero.core_ui"
 }
-
-dependencies {
-    implementation(project(Modules.Core.CORE_DOMAIN))
-}

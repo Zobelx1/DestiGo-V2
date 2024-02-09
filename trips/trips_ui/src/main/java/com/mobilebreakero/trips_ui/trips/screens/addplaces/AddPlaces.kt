@@ -1,4 +1,4 @@
-package com.mobilebreakero.trips.screens.addplaces
+package com.mobilebreakero.trips_ui.trips.screens.addplaces
 
 import android.util.Log
 import android.widget.Toast
@@ -47,11 +47,12 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
-import com.mobilebreakero.navigation_core.NavigationRoutes.TRIP_DETAILS
-import com.mobilebreakero.auth_data.repoimpl.GenerateRandomIdNumber
-import com.mobilebreakero.auth_domain.util.Response
-import com.mobilebreakero.trips.TripsViewModel
-import com.mobilebreakero.trips.screens.plan.selectedLocationpass
+import com.mobilebreakero.core_domain.util.generateRandomIdNumber
+import com.mobilebreakero.core_domain.util.Response
+import com.mobilebreakero.core_ui.components.AnimateIcon
+import com.mobilebreakero.core_ui.navigation.NavigationRoutes.TRIP_DETAILS
+import com.mobilebreakero.trips_ui.trips.TripsViewModel
+import com.mobilebreakero.trips_ui.trips.screens.plan.selectedLocationpass
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -189,7 +190,7 @@ fun AddPlacesScreen(
                                         },
                                         border = BorderStroke(1.dp, Color(0xff4F80FF)),
                                         content = {
-                                            com.mobilebreakero.core_ui.components.AnimateIcon(
+                                            AnimateIcon(
                                                 modifier = Modifier.padding(5.dp),
                                                 color = Color(0xff4F80FF)
                                             )
@@ -220,7 +221,7 @@ fun AddPlacesScreen(
                                                 if (result.name != null) result.name!! else ""
                                             placeAddress =
                                                 if (result.locationId != null) result.locationId!! else ""
-                                            placeTripId = GenerateRandomIdNumber().toString()
+                                            placeTripId = generateRandomIdNumber().toString()
                                             try {
                                                 viewModel.savePlaces(
                                                     placeName,
@@ -235,7 +236,7 @@ fun AddPlacesScreen(
 
                                         border = BorderStroke(1.dp, Color(0xff4F80FF)),
                                         content = {
-                                            com.mobilebreakero.core_ui.components.AnimateIcon(
+                                            AnimateIcon(
                                                 modifier = Modifier.padding(5.dp),
                                                 color = Color(0xff4F80FF)
                                             )

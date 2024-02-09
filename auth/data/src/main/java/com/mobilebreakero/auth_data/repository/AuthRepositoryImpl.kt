@@ -5,7 +5,7 @@ import android.util.Log
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseAuth.AuthStateListener
 import com.google.firebase.firestore.FirebaseFirestore
-import com.mobilebreakero.auth_domain.model.AppUser
+import com.mobilebreakero.core_domain.model.AppUser
 import com.mobilebreakero.auth_domain.repo.AuthRepository
 import com.mobilebreakero.auth_domain.repo.FireStoreRepository
 import com.mobilebreakero.auth_domain.typealiases.CheckUserSignedIn
@@ -60,7 +60,7 @@ class AuthRepositoryImpl @Inject constructor(
     }
 
     override suspend fun sendPasswordResetEmail(email: String) = try {
-        val userDoc = getCollection(AppUser.COLLECTION_NAME)
+        val userDoc = getCollection(com.mobilebreakero.core_domain.model.AppUser.COLLECTION_NAME)
         val user = userDoc.whereEqualTo("email", email).get().await()
         if (user.isEmpty) {
             Failure(Exception("Email not found"))
@@ -94,7 +94,7 @@ class AuthRepositoryImpl @Inject constructor(
         email: String,
         password: String
     ) = try {
-        val userDoc = getCollection(AppUser.COLLECTION_NAME)
+        val userDoc = getCollection(com.mobilebreakero.core_domain.model.AppUser.COLLECTION_NAME)
         val user = userDoc.whereEqualTo("email", email).get().await()
 
         if (user.isEmpty) {
@@ -234,7 +234,7 @@ class AuthRepositoryImpl @Inject constructor(
 
 
     private suspend fun createFireStoreUser(uid: String?, name: String?, email: String?) {
-        val user = AppUser(
+        val user = com.mobilebreakero.core_domain.model.AppUser(
             id = uid,
             name = name,
             email = email

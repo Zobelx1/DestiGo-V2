@@ -1,4 +1,4 @@
-package com.mobilebreakero.trips.screens.plan
+package com.mobilebreakero.trips_ui.trips.screens.plan
 
 
 import android.widget.Toast
@@ -42,11 +42,12 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
-import com.mobilebreakero.auth_domain.model.Trip
-import com.mobilebreakero.auth_domain.util.DataUtils
-import com.mobilebreakero.navigation_core.NavigationRoutes.TRIPS_SCREEN
-import com.mobilebreakero.trips.TripsViewModel
-import com.mobilebreakero.trips.components.CreateTripButton
+import com.mobilebreakero.trips_domain.model.Trip
+import com.mobilebreakero.core_domain.util.DataUtils
+import com.mobilebreakero.core_ui.components.calculateEndDate
+import com.mobilebreakero.core_ui.navigation.NavigationRoutes.TRIPS_SCREEN
+import com.mobilebreakero.trips_ui.trips.TripsViewModel
+import com.mobilebreakero.trips_ui.trips.components.CreateTripButton
 
 
 enum class TripFilters {
@@ -278,7 +279,7 @@ fun CreateTripScreen(
                 .width(320.dp),
             onClick = {
                 endDate =
-                    com.mobilebreakero.core_ui.components.calculateEndDate(selectedDate, howLong)
+                    calculateEndDate(selectedDate, howLong)
                 tripCategory = getCategoryBasedOnUserTravelReason(travelReason)
                 howLong = howLong.ifBlank {
                     "0"

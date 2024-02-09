@@ -1,4 +1,4 @@
-package com.mobilebreakero.trips.screens.plan
+package com.mobilebreakero.trips_ui.trips.screens.plan
 
 import android.util.Log
 import androidx.compose.foundation.background
@@ -44,14 +44,12 @@ import androidx.navigation.NavController
 import coil.compose.SubcomposeAsyncImage
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
-import com.mobilebreakero.navigation_core.NavigationRoutes
-import com.mobilebreakero.auth_domain.model.AppUser
-import com.mobilebreakero.auth_domain.model.Trip
-import com.mobilebreakero.auth_domain.model.TripsItem
-import com.mobilebreakero.auth_domain.util.Response
-import com.mobilebreakero.trips.TripsViewModel
-import com.mobilebreakero.trips.components.CreateTripButton
-import com.mobilebreakero.trips.components.TripItem
+import com.mobilebreakero.core_domain.util.Response
+import com.mobilebreakero.core_ui.navigation.NavigationRoutes.CREATE_TRIP
+import com.mobilebreakero.trips_domain.model.Trip
+import com.mobilebreakero.trips_ui.trips.TripsViewModel
+import com.mobilebreakero.trips_ui.trips.components.CreateTripButton
+import com.mobilebreakero.trips_ui.trips.components.TripItem
 
 
 @Composable
@@ -60,7 +58,7 @@ fun PlanScreen(
     viewModel: TripsViewModel = hiltViewModel()
 ) {
 
-    val user = remember { mutableStateOf(AppUser()) }
+    val user = remember { mutableStateOf(com.mobilebreakero.core_domain.model.AppUser()) }
     val firebaseUser = Firebase.auth.currentUser
 
     com.mobilebreakero.core_ui.components.GetUserFromFireStore(id = firebaseUser?.uid ?: "",
@@ -123,7 +121,7 @@ fun PlanScreen(
                         .clip(RoundedCornerShape(15.dp))
                         .background(Color(0xff4F80FF))
                         .clickable {
-                            navController.navigate(com.mobilebreakero.navigation_core.NavigationRoutes.CREATE_TRIP)
+                            navController.navigate(CREATE_TRIP)
                         },
                     horizontalArrangement = Arrangement.Center,
                     verticalAlignment = Alignment.CenterVertically
@@ -211,7 +209,8 @@ fun PlanScreen(
                     is Response.Success -> {
                         when (selectedTabIndex) {
                             0 -> {
-                                val trips_ = (trips as Response.Success<List<Trip>>).data
+                                val trips_ =
+                                    (trips as Response.Success<List<Trip>>).data
                                 val finishedTrips =
                                     trips_.filter {
                                         it.finished == true
@@ -243,7 +242,8 @@ fun PlanScreen(
                             }
 
                             1 -> {
-                                val trips_ = (trips as Response.Success<List<Trip>>).data
+                                val trips_ =
+                                    (trips as Response.Success<List<Trip>>).data
                                 val ongoingTrips =
                                     trips_.filter { it.finished != true }
 
@@ -286,7 +286,7 @@ fun PlanScreen(
 
                                     is Response.Success -> {
                                         val _publicTrips =
-                                            (publicTrips as Response.Success<List<TripsItem>>).data
+                                            (publicTrips as Response.Success<List<com.mobilebreakero.core_domain.model.TripsItem>>).data
                                         Log.d("PlanScreen", "Public Trips: $_publicTrips")
 
                                         items(_publicTrips.size) { index ->
@@ -324,7 +324,7 @@ fun PlanScreen(
                     .height(50.dp)
                     .align(BottomCenter)
                     .width(300.dp),
-                onClick = { navController.navigate(com.mobilebreakero.navigation_core.NavigationRoutes.CREATE_TRIP) }
+                onClick = { navController.navigate(CREATE_TRIP) }
             )
         }
 

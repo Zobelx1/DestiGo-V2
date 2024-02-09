@@ -1,4 +1,4 @@
-package com.mobilebreakero.details.components
+package com.mobilebreakero.details_ui.details.components
 
 import androidx.compose.animation.core.EaseInOut
 import androidx.compose.animation.core.animateFloatAsState
@@ -38,10 +38,9 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import coil.compose.SubcomposeAsyncImage
-import com.mobilebreakero.core_ui.components.LoadingIndicator
-import com.mobilebreakero.auth_domain.model.DetailsResponse
-import com.mobilebreakero.auth_domain.model.PhotoDataItem
-import com.mobilebreakero.auth_domain.model.ReviewItem
+import com.mobilebreakero.core_domain.model.PhotoDataItem
+import com.mobilebreakero.details_domain.model.DetailsResponse
+import com.mobilebreakero.details_domain.model.ReviewItem
 
 
 @OptIn(ExperimentalFoundationApi::class)

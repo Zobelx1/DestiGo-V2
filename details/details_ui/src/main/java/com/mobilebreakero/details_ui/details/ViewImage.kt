@@ -1,4 +1,4 @@
-package com.mobilebreakero.details
+package com.mobilebreakero.details_ui.details
 
 import android.content.ContentValues
 import android.content.Context
@@ -30,10 +30,9 @@ import coil.ImageLoader
 import coil.compose.SubcomposeAsyncImage
 import coil.request.ImageRequest
 import coil.request.SuccessResult
-import com.mobilebreakero.core_ui.components.LoadingIndicator
-import com.mobilebreakero.details.components.ElevatedButton
-import com.mobilebreakero.core_ui.extensions.rememberZoomState
 import com.mobilebreakero.core_ui.extensions.zoom
+import com.mobilebreakero.details_ui.R
+import com.mobilebreakero.details_ui.details.components.ElevatedButton
 import kotlinx.coroutines.DelicateCoroutinesApi
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope

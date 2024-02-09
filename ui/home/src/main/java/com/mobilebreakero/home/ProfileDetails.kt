@@ -36,8 +36,8 @@ import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import com.mobilebreakero.core_ui.components.GetUserFromFireStore
-import com.mobilebreakero.auth_domain.model.AppUser
-import com.mobilebreakero.auth_domain.model.Post
+import com.mobilebreakero.core_domain.model.AppUser
+import com.mobilebreakero.core_domain.model.Post
 import com.mobilebreakero.auth_domain.repo.postResponse
 import com.mobilebreakero.auth_domain.util.Response
 import com.mobilebreakero.home.components.PostItem
@@ -51,7 +51,7 @@ fun ProfileDetailsScreen(
     viewModel: HomeViewModel = hiltViewModel()
 ) {
 
-    val user = remember { mutableStateOf(AppUser()) }
+    val user = remember { mutableStateOf(com.mobilebreakero.core_domain.model.AppUser()) }
 
     val posts by viewModel.postsIdFlow.collectAsState()
 
@@ -90,7 +90,7 @@ fun ProfileDetailsScreen(
 
 
 @Composable
-fun UserDetails(user: MutableState<AppUser>) {
+fun UserDetails(user: MutableState<com.mobilebreakero.core_domain.model.AppUser>) {
 
     Column(
         horizontalAlignment = Alignment.CenterHorizontally,
@@ -126,10 +126,10 @@ fun UserDetails(user: MutableState<AppUser>) {
 
 @Composable
 fun PostsLabel(
-    user: MutableState<AppUser>,
+    user: MutableState<com.mobilebreakero.core_domain.model.AppUser>,
     viewModel: HomeViewModel,
     posts: postResponse,
-    postsResults: List<Post>,
+    postsResults: List<com.mobilebreakero.core_domain.model.Post>,
     navController: NavController
 ) {
     Column {

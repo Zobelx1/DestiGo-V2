@@ -5,7 +5,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.mobilebreakero.auth_domain.model.Post
+import com.mobilebreakero.core_domain.model.Post
 import com.mobilebreakero.auth_domain.repo.addPostResponse
 import com.mobilebreakero.auth_domain.usecase.firestore.PostUseCase
 import com.mobilebreakero.auth_domain.util.Response
@@ -21,7 +21,7 @@ class AddPostViewModel @Inject constructor(
     var addPostResponse by mutableStateOf<addPostResponse>(Response.Success(false))
         private set
 
-    fun addPost(post: Post) = viewModelScope.launch {
+    fun addPost(post: com.mobilebreakero.core_domain.model.Post) = viewModelScope.launch {
         addPostResponse = Response.Loading
         addPostResponse = postUseCase.addPost(post = post, {},{})
     }

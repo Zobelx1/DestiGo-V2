@@ -1,9 +1,8 @@
 package com.mobilebreakero.auth_data.remote
 
-import com.mobilebreakero.auth_domain.model.DetailsResponse
-import com.mobilebreakero.auth_domain.model.PhotosResponse
-import com.mobilebreakero.auth_domain.model.TripPlacesResponse
-import com.mobilebreakero.auth_domain.util.DataUtils.TRIP_API_KEY
+import com.mobilebreakero.core_domain.model.PhotosResponse
+import com.mobilebreakero.core_domain.model.TripPlacesResponse
+import com.mobilebreakero.core_domain.util.DataUtils.TRIP_API_KEY
 import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Path
@@ -19,11 +18,11 @@ interface TripApi {
         @Query("category") filter: String
     ): Response<TripPlacesResponse>
 
-    @GET("location/{locationId}/details")
-    suspend fun getDetails(
-        @Path("locationId") locationId: String,
-        @Query("key") key: String? = TRIP_API_KEY,
-    ): Response<DetailsResponse>
+//    @GET("location/{locationId}/details")
+//    suspend fun getDetails(
+//        @Path("locationId") locationId: String,
+//        @Query("key") key: String? = TRIP_API_KEY,
+//    ): Response<DetailsResponse>
 
     @GET("location/{locationId}/photos")
     suspend fun getPhotos(

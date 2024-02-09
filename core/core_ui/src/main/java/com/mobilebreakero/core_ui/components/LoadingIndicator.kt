@@ -48,10 +48,12 @@ fun LinearIndicator(indicatorProgress: Float) {
         label = ""
     )
     LinearProgressIndicator(
+        progress = {
+            progressAnimation
+        },
         modifier = Modifier
             .fillMaxWidth()
             .clip(RoundedCornerShape(20.dp)),
-        progress = progressAnimation
     )
     LaunchedEffect(indicatorProgress) {
         progress = indicatorProgress

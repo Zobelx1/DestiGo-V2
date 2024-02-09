@@ -26,7 +26,8 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
-import com.mobilebreakero.navigation_core.NavigationRoutes.SEARCH_SCREEN
+import com.mobilebreakero.core_ui.components.DestiGoButton
+import com.mobilebreakero.core_ui.navigation.NavigationRoutes.SEARCH_SCREEN
 import com.mobilebreakero.home.R
 
 @Composable
@@ -71,7 +72,7 @@ fun TopScreenImage(user: String, navController: NavController) {
                 .align(Alignment.BottomCenter).fillMaxWidth()
                 .padding(top = 200.dp)
         ) {
-            com.mobilebreakero.core_ui.components.DestiGoButton(
+            DestiGoButton(
                 onClick = {
                     navController.navigate(SEARCH_SCREEN)
                 },

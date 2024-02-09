@@ -1,4 +1,4 @@
-package com.mobilebreakero.details.components
+package com.mobilebreakero.details_ui.details.components
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -36,16 +36,14 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import coil.compose.SubcomposeAsyncImage
 import coil.request.ImageRequest
-import com.mobilebreakero.core_ui.components.LoadingIndicator
-import com.mobilebreakero.details.R
-import com.mobilebreakero.auth_domain.model.Trip
-import com.mobilebreakero.details_ui.details.components.ItemsChip
+import com.mobilebreakero.trips_domain.model.Trip
+import com.mobilebreakero.details_ui.R
 
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun TripJournal(
-    trip: Trip,
+    trip: com.mobilebreakero.trips_domain.model.Trip,
     navController: NavController
 ) {
     val tripJournals = trip.tripJournal?.size ?: 0

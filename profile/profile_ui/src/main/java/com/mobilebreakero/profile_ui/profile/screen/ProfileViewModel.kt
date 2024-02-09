@@ -5,7 +5,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.mobilebreakero.auth_domain.model.TripsItem
+import com.mobilebreakero.core_domain.model.TripsItem
 import com.mobilebreakero.auth_domain.repo.getPublicTripsResponse
 import com.mobilebreakero.auth_domain.repo.savedPlacesResponse
 import com.mobilebreakero.auth_domain.usecase.firestore.UserUseCase
@@ -44,7 +44,7 @@ class ProfileViewModel @Inject constructor(
     private val _publicTripsFlow = MutableStateFlow<getPublicTripsResponse>(Response.Loading)
     val publicTripsFlow: StateFlow<getPublicTripsResponse> get() = _publicTripsFlow
 
-    var publicTripResult by mutableStateOf(listOf<TripsItem>())
+    var publicTripResult by mutableStateOf(listOf<com.mobilebreakero.core_domain.model.TripsItem>())
 
     fun getSavedTrips(userId: String) {
 

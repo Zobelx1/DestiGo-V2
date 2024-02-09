@@ -45,7 +45,7 @@ import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.ktx.storage
 import com.mobilebreakero.core_ui.components.GetUserFromFireStore
-import com.mobilebreakero.auth_domain.model.AppUser
+import com.mobilebreakero.core_domain.model.AppUser
 import com.mobilebreakero.auth_domain.util.DataUtils.user
 import com.mobilebreakero.profile.R
 import com.mobilebreakero.profile.component.ProfileImage
@@ -55,7 +55,7 @@ import kotlinx.coroutines.launch
 @Composable
 fun ProfileSettingsContent(viewModel: ProfileSettingsViewModel = hiltViewModel()) {
 
-    val user = remember { mutableStateOf(AppUser()) }
+    val user = remember { mutableStateOf(com.mobilebreakero.core_domain.model.AppUser()) }
     var imageUri by remember { mutableStateOf<Uri?>(null) }
 
     val launcher = rememberLauncherForActivityResult(

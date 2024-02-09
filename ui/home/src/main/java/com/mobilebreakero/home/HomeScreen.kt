@@ -54,19 +54,13 @@ import androidx.navigation.NavController
 import coil.compose.SubcomposeAsyncImage
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
-import com.mobilebreakero.navigation_core.NavigationRoutes.CREATE_TRIP
-import com.mobilebreakero.auth_data.repoimpl.GenerateRandomIdNumber
-import com.mobilebreakero.auth_domain.model.AppUser
-import com.mobilebreakero.auth_domain.model.Post
-import com.mobilebreakero.auth_domain.model.TripsItem
-import com.mobilebreakero.auth_domain.util.Response
+import com.mobilebreakero.core_domain.model.AppUser
 import com.mobilebreakero.core_ui.components.GetUserFromFireStore
 import com.mobilebreakero.core_ui.components.GuideCardDesign
 import com.mobilebreakero.core_ui.components.LoadingIndicator
 import com.mobilebreakero.core_ui.components.VSpacer
 import com.mobilebreakero.core_ui.design_system.Borders
 import com.mobilebreakero.core_ui.design_system.Dimens
-import com.mobilebreakero.core_ui.design_system.SpacerHeights
 import com.mobilebreakero.core_ui.design_system.TextStyles
 import com.mobilebreakero.core_ui.design_system.fontSize
 import com.mobilebreakero.home.components.AddButtonDesign
@@ -190,7 +184,7 @@ fun HomeScreen(navController: NavController, viewModel: HomeViewModel = hiltView
                                     R.drawable.favorite_border
                                 },
                                 onSaveCLick = {
-                                    val tripItem = TripsItem(
+                                    val tripItem = com.mobilebreakero.core_domain.model.TripsItem(
                                         id = userRecommended[index]?.id,
                                         userId = user.value.id,
                                         tripId = GenerateRandomIdNumber().toString(),
@@ -565,7 +559,7 @@ fun HomeScreen(navController: NavController, viewModel: HomeViewModel = hiltView
 
                     is Response.Success -> {
 
-                        val posts = (posts as Response.Success<List<Post>>).data
+                        val posts = (posts as Response.Success<List<com.mobilebreakero.core_domain.model.Post>>).data
 
                         items(posts.size) { index ->
 

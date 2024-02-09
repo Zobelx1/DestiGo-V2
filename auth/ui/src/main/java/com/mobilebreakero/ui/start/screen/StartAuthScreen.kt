@@ -29,9 +29,9 @@ import com.mobilebreakero.core_ui.design_system.Dimens.medium10
 import com.mobilebreakero.core_ui.design_system.Dimens.medium12
 import com.mobilebreakero.core_ui.design_system.Modifiers.fillMaxSize
 import com.mobilebreakero.core_ui.design_system.TextStyles.ContentTextStyle14
-import com.mobilebreakero.navigation_core.NavigationRoutes.HOME_SCREEN
-import com.mobilebreakero.navigation_core.NavigationRoutes.SIGN_IN_SCREEN
-import com.mobilebreakero.navigation_core.NavigationRoutes.SIGN_UP_SCREEN
+import com.mobilebreakero.core_ui.navigation.NavigationRoutes.HOME_SCREEN
+import com.mobilebreakero.core_ui.navigation.NavigationRoutes.SIGN_IN_SCREEN
+import com.mobilebreakero.core_ui.navigation.NavigationRoutes.SIGN_UP_SCREEN
 import com.mobilebreakero.ui.R
 import com.mobilebreakero.ui.signup.components.ButtonModifier.mainModifier
 import com.mobilebreakero.ui.start.StartViewModel

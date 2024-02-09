@@ -3,14 +3,12 @@ package com.mobilebreakero.auth_data.repoimpl
 import android.content.Context
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.gson.Gson
-import com.mobilebreakero.auth_domain.model.RecommendedPlaceItem
-import com.mobilebreakero.auth_domain.model.RecommendedPlaces
-import com.mobilebreakero.auth_domain.model.RecommendedTripsModel
-import com.mobilebreakero.auth_domain.model.TripsItem
-import com.mobilebreakero.auth_domain.repo.RecommendedTrips
-import com.mobilebreakero.auth_domain.util.Response
-import com.mobilebreakero.auth_domain.util.await
-import com.mobilebreakero.auth_domain.util.getCollection
+import com.mobilebreakero.core_domain.model.RecommendedTripsModel
+import com.mobilebreakero.core_domain.model.TripsItem
+import com.mobilebreakero.core_domain.repo.RecommendedTrips
+import com.mobilebreakero.core_domain.util.Response
+import com.mobilebreakero.core_domain.util.await
+import com.mobilebreakero.core_domain.util.getCollection
 import java.io.InputStreamReader
 import javax.inject.Inject
 import javax.inject.Singleton
@@ -42,11 +40,11 @@ class RecommededImple @Inject constructor(
         }
     }
 
-    override suspend fun getRecommendationPlaces(userInterests: List<String>): List<RecommendedPlaceItem?> {
+    override suspend fun getRecommendationPlaces(userInterests: List<String>): List<com.mobilebreakero.core_domain.model.RecommendedPlaceItem?> {
         return try {
             val inputStream = context.assets.open("Places.json")
             val reader = InputStreamReader(inputStream)
-            val placesList = Gson().fromJson(reader, RecommendedPlaces::class.java)
+            val placesList = Gson().fromJson(reader, com.mobilebreakero.core_domain.model.RecommendedPlaces::class.java)
 
             val filteredPlaces =
                 if (userInterests.isNotEmpty())

@@ -1,4 +1,4 @@
-package com.mobilebreakero.details.components
+package com.mobilebreakero.details_ui.details.components
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box

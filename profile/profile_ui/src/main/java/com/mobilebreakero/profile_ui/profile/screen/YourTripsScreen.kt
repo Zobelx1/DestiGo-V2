@@ -17,11 +17,7 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
-import com.mobilebreakero.core_ui.components.GetUserFromFireStore
-import com.mobilebreakero.core_ui.components.LoadingIndicator
-import com.mobilebreakero.auth_domain.model.AppUser
-import com.mobilebreakero.auth_domain.model.Trip
-import com.mobilebreakero.auth_domain.model.TripsItem
+import com.mobilebreakero.trips_domain.model.Trip
 import com.mobilebreakero.auth_domain.util.Response
 import com.mobilebreakero.profile.yourtrips.YourTripsViewModel
 
@@ -31,7 +27,7 @@ fun YourTripsScreen(
     navController: NavController
 ) {
 
-    val user = remember { mutableStateOf(AppUser()) }
+    val user = remember { mutableStateOf(com.mobilebreakero.core_domain.model.AppUser()) }
     val firebaseUser = Firebase.auth.currentUser
 
     com.mobilebreakero.core_ui.components.GetUserFromFireStore(
@@ -64,7 +60,7 @@ fun YourTripsScreen(
             }
 
             is Response.Success -> {
-                val trips_ = (yourtrips as Response.Success<List<Trip>>).data
+                val trips_ = (yourtrips as Response.Success<List<com.mobilebreakero.trips_domain.model.Trip>>).data
 
                 if (trips_.isNotEmpty()) {
                     items(trips_.size) { index ->
@@ -103,7 +99,7 @@ fun YourTripsScreen(
 
             is Response.Success -> {
                 val _publicTrips =
-                    (publicTrips as Response.Success<List<TripsItem>>).data
+                    (publicTrips as Response.Success<List<com.mobilebreakero.core_domain.model.TripsItem>>).data
                 Log.d("PlanScreen", "Public Trips: $_publicTrips")
 
                 if (_publicTrips.isNotEmpty()) {

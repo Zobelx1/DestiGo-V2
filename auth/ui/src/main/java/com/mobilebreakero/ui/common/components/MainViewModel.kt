@@ -6,7 +6,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.mobilebreakero.auth_domain.model.Trip
+import com.mobilebreakero.trips_domain.model.Trip
 import com.mobilebreakero.auth_domain.repo.getTripsResponse
 import com.mobilebreakero.auth_domain.repo.updateTripResponse
 import com.mobilebreakero.auth_domain.typealiases.ReloadUserResponse
@@ -72,7 +72,7 @@ class MainViewModel @Inject constructor(
 
     private val _tripsFlow = MutableStateFlow<getTripsResponse>(Loading)
 
-    var tripsResult by mutableStateOf(listOf<Trip>())
+    var tripsResult by mutableStateOf(listOf<com.mobilebreakero.trips_domain.model.Trip>())
 
     fun getTrips(userId: String) {
         viewModelScope.launch {

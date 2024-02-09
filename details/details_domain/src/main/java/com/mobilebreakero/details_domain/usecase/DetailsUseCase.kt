@@ -1,7 +1,7 @@
 package com.mobilebreakero.details_domain.usecase
 
 
-import com.mobilebreakero.auth_domain.model.ReviewItem
+import com.mobilebreakero.details_domain.model.ReviewItem
 import com.mobilebreakero.details_domain.repo.DetailsRepository
 import javax.inject.Inject
 

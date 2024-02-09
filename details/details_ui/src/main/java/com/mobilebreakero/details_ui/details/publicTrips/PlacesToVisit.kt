@@ -1,4 +1,4 @@
-package com.mobilebreakero.details.publicTrips
+package com.mobilebreakero.details_ui.details.publicTrips
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Spacer
@@ -13,8 +13,7 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
-import com.mobilebreakero.core_ui.components.CoilImage
-import com.mobilebreakero.auth_domain.model.TripsItem
+import com.mobilebreakero.core_domain.model.TripsItem
 
 
 @Composable

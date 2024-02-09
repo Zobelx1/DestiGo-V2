@@ -83,6 +83,8 @@ dependencies {
     coroutines()
     design()
     camera()
+    implementation(project(Modules.Core.CORE_DOMAIN))
+    implementation(project(Modules.Core.CORE_UI))
     testImplementation(Dependencies.Test.Unit.JUNIT)
     testImplementation(Dependencies.Test.Integration.JUNIT)
     testImplementation(Dependencies.Test.Integration.ESPRESSO_CORE)

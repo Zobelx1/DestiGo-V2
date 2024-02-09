@@ -20,12 +20,12 @@ import androidx.core.content.ContextCompat
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
-import com.mobilebreakero.ui.common.components.MainViewModel
-import com.mobilebreakero.navigation_core.NavigationRoutes.EMAIL_VERIFICATION_SCREEN
-import com.mobilebreakero.navigation_core.NavigationRoutes.HOME_SCREEN
-import com.mobilebreakero.navigation_core.NavigationRoutes.START_SCREEN
-import com.mobilebreakero.navigation_core.NavigationRoutes.WELCOME_SCREEN
-import com.mobilebreakero.destigo.ui.theme.DestiGoTheme
+import com.mobilebreakero.core_ui.MainViewModel
+import com.mobilebreakero.core_ui.components.DestiGoTopAppBar
+import com.mobilebreakero.core_ui.navigation.NavigationRoutes.EMAIL_VERIFICATION_SCREEN
+import com.mobilebreakero.core_ui.navigation.NavigationRoutes.HOME_SCREEN
+import com.mobilebreakero.core_ui.navigation.NavigationRoutes.START_SCREEN
+import com.mobilebreakero.core_ui.navigation.NavigationRoutes.WELCOME_SCREEN
 import com.mobilebreakero.home.components.BottomNavigation
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.delay
@@ -40,7 +40,7 @@ class MainActivity : ComponentActivity() {
     private val REQUEST_LOCATION_PERMISSION = 129
     private val REQUEST_CAMERA_PERMISSION = 232
     private val splashDuration = 2500L
-    private val viewModel by viewModels<com.mobilebreakero.ui.common.components.MainViewModel>()
+    private val viewModel by viewModels<MainViewModel>()
     private lateinit var navController: NavHostController
     private lateinit var startDestination: String
     private lateinit var tripManager: TripManager
@@ -70,23 +70,22 @@ class MainActivity : ComponentActivity() {
                     authState()
                 }
 
-                DestiGoTheme {
 
-                    Scaffold(
-                        topBar = {
-                            com.mobilebreakero.core_ui.components.DestiGoTopAppBar(
-                                navController
-                            )
-                        },
-                        bottomBar = { BottomNavigation(navController) }
-                    ) { pv ->
-                        Box(modifier = Modifier.padding(pv)) {
-                            com.mobilebreakero.navigation_core.MainNavHost(
-                                navController,
-                                startDestination
-                            )
-                        }
+                Scaffold(
+                    topBar = {
+                        DestiGoTopAppBar(
+                            navController
+                        )
+                    },
+                    bottomBar = { BottomNavigation(navController) }
+                ) { pv ->
+                    Box(modifier = Modifier.padding(pv)) {
+                        com.mobilebreakero.navigation_core.MainNavHost(
+                            navController,
+                            startDestination
+                        )
                     }
+
                 }
             }
         }

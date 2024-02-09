@@ -3,7 +3,16 @@
   <component name="CompilerConfiguration">
     <bytecodeTargetLevel target="11">
       <module name="DestiGo.common-ui" target="11" />
+      <module name="DestiGo.ui.addPost" target="17" />
+      <module name="DestiGo.ui.auth" target="17" />
+      <module name="DestiGo.ui.details" target="17" />
+      <module name="DestiGo.ui.Interestedplaces" target="17" />
       <module name="DestiGo.ui.navigation" target="11" />
+      <module name="DestiGo.ui.profile" target="17" />
+      <module name="DestiGo.ui.scan" target="17" />
+      <module name="DestiGo.ui.testing" target="17" />
+      <module name="DestiGo.ui.trips" target="17" />
+      <module name="DestiGo.ui.welcome" target="17" />
     </bytecodeTargetLevel>
   </component>
 </project>

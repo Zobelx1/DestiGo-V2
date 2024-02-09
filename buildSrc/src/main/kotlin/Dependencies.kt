@@ -100,6 +100,10 @@ object Dependencies {
         const val BUILD_TOOLS = "com.android.tools.build:gradle:${Versions.GRADLE}"
         const val KOTLIN_PLUGIN = "org.jetbrains.kotlin:kotlin-gradle-plugin:${Versions.KOTLIN}"
     }
+    object CoreModule{
+        const val CORE_DOMAIN = Modules.Core.CORE_DOMAIN
+        const val CORE_UI = Modules.Core.CORE_UI
+    }
 
     object Test {
         object Unit {
@@ -228,3 +232,5 @@ fun destiGoDependencyHandler.testImplementation(dependencyNotation: String): Dep
 fun destiGoDependencyHandler.androidTestImplementation(dependencyNotation: String): Dependency? =
     add("androidTestImplementation", dependencyNotation)
 
+fun destiGoDependencyHandler.implementProject(projectPath: String, configuration: String? = "implementation"): Dependency? =
+    configuration?.let { add(it, projectPath) }

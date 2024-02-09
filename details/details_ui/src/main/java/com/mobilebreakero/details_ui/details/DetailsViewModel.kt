@@ -1,4 +1,4 @@
-package com.mobilebreakero.details
+package com.mobilebreakero.details_ui.details
 
 import android.util.Log
 import androidx.compose.runtime.getValue
@@ -6,23 +6,22 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.mobilebreakero.auth_domain.model.DetailsResponse
-import com.mobilebreakero.auth_domain.model.PhotoDataItem
-import com.mobilebreakero.auth_domain.model.ReviewItem
-import com.mobilebreakero.auth_domain.model.Trip
-import com.mobilebreakero.auth_domain.model.TripsItem
-import com.mobilebreakero.auth_domain.repo.getPublicTripDetailsResponse
-import com.mobilebreakero.auth_domain.repo.getTripDetailsResponse
-import com.mobilebreakero.auth_domain.repo.updatePlacesResponse
-import com.mobilebreakero.auth_domain.repo.updateTripResponse
-import com.mobilebreakero.auth_domain.usecase.DetailsUseCase
-import com.mobilebreakero.auth_domain.usecase.GetPublicTripsUseCase
-import com.mobilebreakero.auth_domain.usecase.GetReviewsUseCase
-import com.mobilebreakero.auth_domain.usecase.PhotoUseCase
-import com.mobilebreakero.auth_domain.usecase.UpdatePublicTripDate
-import com.mobilebreakero.auth_domain.usecase.UpdatePublicTripDays
-import com.mobilebreakero.auth_domain.usecase.firestore.TripsUseCase
-import com.mobilebreakero.auth_domain.util.Response
+import com.mobilebreakero.core_domain.model.PhotoDataItem
+import com.mobilebreakero.trips_domain.model.Trip
+import com.mobilebreakero.core_domain.model.TripsItem
+import com.mobilebreakero.core_domain.repo.getPublicTripDetailsResponse
+import com.mobilebreakero.core_domain.repo.getTripDetailsResponse
+import com.mobilebreakero.core_domain.repo.updatePlacesResponse
+import com.mobilebreakero.core_domain.repo.updateTripResponse
+import com.mobilebreakero.core_domain.usecase.DetailsUseCase
+import com.mobilebreakero.profile_domain.usecase.GetPublicTripsUseCase
+import com.mobilebreakero.core_domain.usecase.GetReviewsUseCase
+import com.mobilebreakero.details_domain.usecase.PhotoUseCase
+import com.mobilebreakero.profile_domain.usecase.UpdatePublicTripDate
+import com.mobilebreakero.profile_domain.usecase.UpdatePublicTripDays
+import com.mobilebreakero.core_domain.util.Response
+import com.mobilebreakero.details_domain.model.DetailsResponse
+import com.mobilebreakero.details_domain.model.ReviewItem
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -34,9 +33,9 @@ class DetailsViewModel @Inject constructor(
     private val photoUseCase: PhotoUseCase,
     private val detailsUseCase: DetailsUseCase,
     private val tripsUseCase: TripsUseCase,
-    private val getPublicTripsUseCase: GetPublicTripsUseCase,
-    private val updatePublicTripDays: UpdatePublicTripDays,
-    private val updatePublicTripDate: UpdatePublicTripDate,
+    private val getPublicTripsUseCase: com.mobilebreakero.profile_domain.usecase.GetPublicTripsUseCase,
+    private val updatePublicTripDays: com.mobilebreakero.profile_domain.usecase.UpdatePublicTripDays,
+    private val updatePublicTripDate: com.mobilebreakero.profile_domain.usecase.UpdatePublicTripDate,
     private val getReviewsUseCase: GetReviewsUseCase,
 ) : ViewModel() {
 
@@ -95,7 +94,7 @@ class DetailsViewModel @Inject constructor(
     }
 
     private val tripDetails =
-        MutableStateFlow<getTripDetailsResponse>(Response.Success(Trip()))
+        MutableStateFlow<getTripDetailsResponse>(Response.Success(com.mobilebreakero.trips_domain.model.Trip()))
 
     val tripDetailsResult: StateFlow<getTripDetailsResponse> = tripDetails
 

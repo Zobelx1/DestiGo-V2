@@ -1,4 +1,4 @@
-package com.mobilebreakero.details.components
+package com.mobilebreakero.details_ui.details.components
 
 import android.net.Uri
 import androidx.activity.compose.rememberLauncherForActivityResult
@@ -41,20 +41,18 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import coil.compose.SubcomposeAsyncImage
 import coil.request.ImageRequest
-import com.mobilebreakero.core_ui.components.LoadingIndicator
-import com.mobilebreakero.details.DetailsViewModel
-import com.mobilebreakero.details.R
-import com.mobilebreakero.details.ViewImage
-import com.mobilebreakero.details.loadProgress
-import com.mobilebreakero.details.uploadImageToStorage
-import com.mobilebreakero.auth_domain.model.Trip
+import com.mobilebreakero.details_ui.details.DetailsViewModel
+import com.mobilebreakero.trips_domain.model.Trip
+import com.mobilebreakero.details_ui.R
+import com.mobilebreakero.details_ui.details.ViewImage
+import com.mobilebreakero.details_ui.details.loadProgress
 import kotlinx.coroutines.launch
 
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun TripImages(
-    trip: Trip,
+    trip: com.mobilebreakero.trips_domain.model.Trip,
     navController: NavController,
     viewModel: DetailsViewModel = hiltViewModel()
 ) {

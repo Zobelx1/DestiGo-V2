@@ -15,7 +15,7 @@ import com.mobilebreakero.core_ui.components.VSpacer
 import com.mobilebreakero.core_ui.components.buttonContainerColor
 import com.mobilebreakero.core_ui.design_system.Dimens.extraLarge30
 import com.mobilebreakero.core_ui.design_system.Dimens.large20
-import com.mobilebreakero.navigation_core.NavigationRoutes.SIGN_IN_SCREEN
+import com.mobilebreakero.core_ui.navigation.NavigationRoutes.SIGN_IN_SCREEN
 import com.mobilebreakero.ui.common.components.AuthContent
 import com.mobilebreakero.ui.common.components.DestiGoTextField
 import com.mobilebreakero.ui.login.LoginViewModel

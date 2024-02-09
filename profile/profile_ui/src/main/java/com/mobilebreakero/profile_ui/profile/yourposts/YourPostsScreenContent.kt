@@ -31,8 +31,8 @@ import androidx.navigation.NavController
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 import com.mobilebreakero.core_ui.components.GetUserFromFireStore
-import com.mobilebreakero.auth_domain.model.AppUser
-import com.mobilebreakero.auth_domain.model.Post
+import com.mobilebreakero.core_domain.model.AppUser
+import com.mobilebreakero.core_domain.model.Post
 import com.mobilebreakero.auth_domain.util.Response
 
 
@@ -42,7 +42,7 @@ fun YourPostsScreenContent(
     navController: NavController
 ) {
 
-    val user = remember { mutableStateOf(AppUser()) }
+    val user = remember { mutableStateOf(com.mobilebreakero.core_domain.model.AppUser()) }
     val firebaseUser = Firebase.auth.currentUser
 
     com.mobilebreakero.core_ui.components.GetUserFromFireStore(
@@ -87,7 +87,7 @@ fun YourPostsScreenContent(
 
                 is Response.Success -> {
 
-                    val posts = (posts as Response.Success<List<Post>>).data
+                    val posts = (posts as Response.Success<List<com.mobilebreakero.core_domain.model.Post>>).data
 
                     items(posts.size) { index ->
 

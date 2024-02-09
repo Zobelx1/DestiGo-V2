@@ -1,7 +1,7 @@
-package com.mobilebreakero.auth_domain.usecase.firestore.trips
+package com.mobilebreakero.trips_domain.usecase.trips
 
-import com.mobilebreakero.auth_domain.repo.TripsRepo
-import com.mobilebreakero.auth_domain.repo.getPublicTripsResponse
+import com.mobilebreakero.trips_domain.repo.TripsRepo
+import com.mobilebreakero.trips_domain.repo.getPublicTripsResponse
 import javax.inject.Inject
 
 class GetPublicTrips @Inject constructor(

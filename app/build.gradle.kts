@@ -7,7 +7,8 @@ import Dependencies.hilt
 import Dependencies.coroutines
 import Dependencies.firebase
 import Versions
-plugins{
+
+plugins {
     id(Plugins.ANDROID_APPLICATION)
     id(Plugins.KOTLIN_ANDROID)
     id(Plugins.KOTLIN_KAPT)
@@ -71,7 +72,17 @@ dependencies {
     implementation(project(Modules.Auth.AUTH_DATA))
 
     implementation(project(Modules.Ui.HOME))
-    implementation(project(Modules.Ui.AUTH))
     implementation(project(Modules.NAVIGATION))
-}
 
+    implementation(project(Modules.Profile.PROFILE_DOMAIN))
+    implementation(project(Modules.Profile.PROFILE_DATA))
+
+    implementation(project(Modules.Trips.TRIPS_DOMAIN))
+    implementation(project(Modules.Trips.TRIPS_DATA))
+
+    implementation(project(Modules.Posts.POSTS_DATA))
+    implementation(project(Modules.Posts.POSTS_DOMAIN))
+
+    implementation(project(Modules.Details.DETAILS_DOMAIN))
+    implementation(project(Modules.Details.DETAILS_DATA))
+}
