@@ -71,7 +71,6 @@ dependencies {
     implementation(project(Modules.Auth.AUTH_DOMAIN))
     implementation(project(Modules.Auth.AUTH_DATA))
 
-    implementation(project(Modules.Ui.HOME))
     implementation(project(Modules.NAVIGATION))
 
     implementation(project(Modules.Profile.PROFILE_DOMAIN))

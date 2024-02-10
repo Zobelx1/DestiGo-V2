@@ -38,6 +38,8 @@
             <option value="$PROJECT_DIR$/details/details_data" />
             <option value="$PROJECT_DIR$/details/details_domain" />
             <option value="$PROJECT_DIR$/details/details_ui" />
+            <option value="$PROJECT_DIR$/home" />
+            <option value="$PROJECT_DIR$/home/home_ui" />
             <option value="$PROJECT_DIR$/navigation" />
             <option value="$PROJECT_DIR$/posts" />
             <option value="$PROJECT_DIR$/posts/posts_data" />
@@ -47,6 +49,10 @@
             <option value="$PROJECT_DIR$/profile/profile_data" />
             <option value="$PROJECT_DIR$/profile/profile_domain" />
             <option value="$PROJECT_DIR$/profile/profile_ui" />
+            <option value="$PROJECT_DIR$/search" />
+            <option value="$PROJECT_DIR$/search/search_data" />
+            <option value="$PROJECT_DIR$/search/search_domain" />
+            <option value="$PROJECT_DIR$/search/search_ui" />
             <option value="$PROJECT_DIR$/splash" />
             <option value="$PROJECT_DIR$/splash/splash_ui" />
             <option value="$PROJECT_DIR$/trips" />
@@ -54,7 +60,6 @@
             <option value="$PROJECT_DIR$/trips/trips_domain" />
             <option value="$PROJECT_DIR$/trips/trips_ui" />
             <option value="$PROJECT_DIR$/ui" />
-            <option value="$PROJECT_DIR$/ui/home" />
             <option value="$PROJECT_DIR$/ui/search" />
           </set>
         </option>

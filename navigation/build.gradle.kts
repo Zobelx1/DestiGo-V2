@@ -6,7 +6,7 @@ android {
     namespace = "com.mobilebreakero.navigation_core"
 }
 dependencies {
-    implementation(project(Modules.Ui.HOME))
+
     implementation(project(Modules.Ui.SEARCH))
     implementation(project(Modules.Auth.AUTH_UI))
     implementation(project(Modules.Profile.PROFILE_UI))

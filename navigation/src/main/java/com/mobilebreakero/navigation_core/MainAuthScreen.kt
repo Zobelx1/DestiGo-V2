@@ -22,7 +22,6 @@ import com.mobilebreakero.core_ui.navigation.NavigationRoutes.SIGN_UP_SCREEN
 import com.mobilebreakero.core_ui.navigation.NavigationRoutes.SIGN_IN_SCREEN
 import com.mobilebreakero.core_ui.navigation.NavigationRoutes.HOME_SCREEN
 import com.mobilebreakero.core_ui.navigation.NavigationRoutes.INTERESTED_PLACES_SCREEN
-import com.mobilebreakero.core_ui.navigation.NavigationRoutes.SCAN_SCREEN
 import com.mobilebreakero.core_ui.navigation.NavigationRoutes.PROFILE_SCREEN
 import com.mobilebreakero.core_ui.navigation.NavigationRoutes.SEND_CONFIRMATION_CODE
 import com.mobilebreakero.core_ui.navigation.NavigationRoutes.CHOOSE_NEW_PASSWORD
@@ -74,7 +73,7 @@ import com.mobilebreakero.profile_ui.account.accountacess.updatepassword.screens
 import com.mobilebreakero.profile_ui.account.accountacess.updatepassword.screens.ConfirmTheConfirmationCodeScreen
 import com.mobilebreakero.profile_ui.account.accountacess.updatepassword.screens.SendConfirmationCodeScreen
 import com.mobilebreakero.profile_ui.account.accountacess.updateusername.ChooseNewUserName
-import com.mobilebreakero.search.screen.SearchScreen
+import com.mobilebreakero.search_ui.screen.SearchScreen
 import com.mobilebreakero.splash_ui.welcome.WelcomeScreen
 import com.mobilebreakero.trips_ui.trips.screens.addplaces.AddPlacesScreen
 import com.mobilebreakero.trips_ui.trips.screens.plan.CreateTripScreen
@@ -169,7 +168,7 @@ fun MainNavHost(
             ConfirmTheConfirmationCodeScreen(navController = navController)
         }
         composable(route = SEARCH_SCREEN) {
-            SearchScreen(navController = navController)
+            com.mobilebreakero.search_ui.screen.SearchScreen(navController = navController)
         }
         composable(route = TRIPS_SCREEN) {
             PlanScreen(navController = navController)
